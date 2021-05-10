@@ -6,7 +6,6 @@ var taskFormHandler = function() {
     event.preventDefault ()
     var taskNameInput = document.querySelector("input[name='task-name']").value;
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
-    
     // check to see if data object is empty string
     if (!taskNameInput || !taskTypeInput) {
 
@@ -17,11 +16,12 @@ var taskFormHandler = function() {
     
     // package data as an object to pass to next function
     var taskDataObj = {
-        name:taskNameInput,
-        type:taskTypeInput,
+        name: taskNameInput,
+        type: taskTypeInput
     };
     // send as an  argument to createTaskEl
     createTaskEl(taskDataObj);
+
 };
 
 var createTaskEl = function (taskDataObj) {
@@ -33,7 +33,7 @@ var createTaskEl = function (taskDataObj) {
     //give it a class name
     taskInfoEl.className = "task-info";
     // add html content to div
-    taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj + "</h3><span class='task-type'>" + taskDataObj + "</span>";
+    taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
     listItemEl.appendChild(taskInfoEl);
     // add entire list item to list
     tasksToDoEl.appendChild(listItemEl);
